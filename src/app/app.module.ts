@@ -11,6 +11,7 @@ import { TermsViewComponent } from './views/terms-view/terms-view.component';
 import { FormViewComponent } from './views/form-view/form-view.component';
 import { DetailsViewComponent } from './views/details-view/details-view.component';
 import { HomeViewComponent } from './views/home-view/home-view.component';
+import {MatInputModule} from '@angular/material/input';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { HomeViewComponent } from './views/home-view/home-view.component';
     MatButtonModule,
     MatSidenavModule,
     MatIconModule,
-    MatListModule
+    MatListModule,
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]
