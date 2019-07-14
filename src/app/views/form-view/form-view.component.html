@@ -10,27 +10,20 @@
 
     <mat-form-field>
       <mat-label>Language</mat-label>
-      <select matNativeControl required>
-        <option value="javascript">JavaScript</option>
-        <option value="java">Java</option>
-        <option value="csharp">C#</option>
-        <option value="python">Python</option>
-        <option value="html">HTML</option>
-        <option value="css">CSS</option>
-        <option value="rubyonrails">RubyOnRails</option>
-        <option value="cpp">C++</option>
-        <option value="c">C</option>
-        <option value="php">PHP</option>
-        <option value="go">Go</option>
-        <option value="delphi">Delphi</option>
-      </select>
+      <mat-select>
+        <mat-option *ngFor="let language of languages" value="language.value">
+          {{language.viewValue}}
+        </mat-option>
+      </mat-select>
     </mat-form-field>
-  
+
     <mat-form-field class="example-full-width">
       <textarea matInput placeholder="Code"></textarea>
     </mat-form-field>
 
     <mat-form-field class="example-full-width">
       <textarea matInput placeholder="Explanation"></textarea>
-    </mat-form-field>
+    </mat-form-field> 
+
+    <button mat-raised-button>SUBMIT</button>
   </form>
