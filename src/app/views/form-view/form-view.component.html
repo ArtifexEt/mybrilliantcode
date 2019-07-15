@@ -1,11 +1,29 @@
-<p>form-view works!</p>
 
 <form class="example-form">
     <mat-form-field class="example-full-width">
-      <input matInput placeholder="Favorite food" value="Sushi">
+      <input matInput placeholder="Author">
     </mat-form-field>
-  
+
     <mat-form-field class="example-full-width">
-      <textarea matInput placeholder="Leave a comment"></textarea>
+      <input matInput placeholder="Email">
+    </mat-form-field> 
+
+    <mat-form-field>
+      <mat-label>Language</mat-label>
+      <mat-select>
+        <mat-option *ngFor="let language of languages" value="language.value">
+          {{language.viewValue}}
+        </mat-option>
+      </mat-select>
     </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <textarea matInput placeholder="Code"></textarea>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <textarea matInput placeholder="Explanation"></textarea>
+    </mat-form-field> 
+
+    <button mat-raised-button>SUBMIT</button>
   </form>
