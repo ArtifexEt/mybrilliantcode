@@ -6,8 +6,6 @@ branches:
     - master
 script:
   - ng build --prod
-  - npm i -g firebase-tools
-  - cd functions && npm install
 install:
   - npm install
 deploy:
