@@ -1,0 +1,14 @@
+language: node_js
+node_js:
+  - "9"
+branches:
+  only:
+    - master
+script:
+  - ng lint
+  - ng build --prod
+install:
+  - npm install -g firebase-tools
+  - npm i
+after_success:
+  - firebase deploy --project mybrilliantcode --token $FIREBASE_TOKEN
