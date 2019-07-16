@@ -8,6 +8,8 @@ script:
   - ng build --prod
 install:
   - npm install
+before_install:
+  - 'npm i -g firebase-tools'
 deploy:
   skip_cleanup: true
   provider: firebase
