@@ -10,6 +10,7 @@ install:
   - npm install
 before_install:
   - 'npm i -g firebase-tools'
+  - 'npm i -g tslint'
 deploy:
   skip_cleanup: true
   provider: firebase
