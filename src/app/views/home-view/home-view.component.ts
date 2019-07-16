@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {SnippetsService} from "../../services/snippets/snippets.service";
 
 @Component({
   selector: 'app-home-view',
@@ -7,9 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeViewComponent implements OnInit {
 
-  constructor() { }
+  constructor(private snippetsService: SnippetsService) { }
 
   ngOnInit() {
+    this.snippetsService.getSnippets().subscribe(value => console.log(value));
   }
 
 }

@@ -12,6 +12,9 @@ import { FormViewComponent } from './views/form-view/form-view.component';
 import { DetailsViewComponent } from './views/details-view/details-view.component';
 import { HomeViewComponent } from './views/home-view/home-view.component';
 import { MatInputModule } from '@angular/material/input';
+import {AngularFireModule} from "@angular/fire";
+import {environment} from "../environments/environment";
+import {AngularFirestoreModule} from "@angular/fire/firestore";
 
 @NgModule({
   declarations: [
@@ -33,7 +36,9 @@ import { MatInputModule } from '@angular/material/input';
     MatIconModule,
     MatListModule,
     MatInputModule,
-    MatSelectModule
+    MatSelectModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFirestoreModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
