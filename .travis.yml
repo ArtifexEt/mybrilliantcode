@@ -6,7 +6,7 @@ branches:
     - master
 script:
   - ng build --prod
-  - npm i -g lint
+  - npm i -g tslint
   - npm i -g typescript
 install:
   - npm install
