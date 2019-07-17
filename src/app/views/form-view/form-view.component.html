@@ -25,5 +25,5 @@
       <textarea matInput placeholder="Explanation" formControlName="explanation"></textarea>
     </mat-form-field> 
 
-    <button mat-raised-button [disabled]="form.invalid">SUBMIT</button>
+    <button mat-raised-button [disabled]="form.invalid" (click)="add()">SUBMIT</button>
   </form>
