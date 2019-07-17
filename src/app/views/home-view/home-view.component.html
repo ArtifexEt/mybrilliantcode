@@ -1,3 +1,1 @@
-<p>home-view works!</p>
-
-:)
+<mat-card *ngFor="let snippet of (snippet$ | async)">{{snippet.author}}</mat-card>

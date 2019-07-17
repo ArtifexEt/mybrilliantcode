@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { SnippetsService } from 'src/app/services/snippets/snippets.service';
 
 export interface Language {
   value: string;
@@ -27,7 +28,8 @@ export class FormViewComponent implements OnInit {
   ];
 
   form: FormGroup;
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(private formBuilder: FormBuilder, 
+    private snippetsService: SnippetsService) { }
 
   ngOnInit() {
     this.form = this.formBuilder.group({
@@ -38,6 +40,8 @@ export class FormViewComponent implements OnInit {
       'explanation': ['',Validators.required]
     })
   }
-
+  add() {
+    this.snippetsService.addSnippet(this.form.getRawValue())
+  }
 }
 
