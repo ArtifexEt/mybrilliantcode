@@ -18,6 +18,14 @@ import {AngularFirestoreModule} from "@angular/fire/firestore";
 import { ReactiveFormsModule } from '@angular/forms';
 import {MatCardModule} from '@angular/material/card';
 
+/* Import prism core */
+import 'prismjs/prism';
+
+/* Import the language you need to highlight */
+import 'prismjs/components/prism-typescript';
+
+import { PrismComponent } from 'angular-prism';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,6 +34,7 @@ import {MatCardModule} from '@angular/material/card';
     FormViewComponent,
     DetailsViewComponent,
     HomeViewComponent,
+    PrismComponent,
   ],
   imports: [
     BrowserModule,

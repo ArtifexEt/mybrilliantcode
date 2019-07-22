@@ -1,1 +1,3 @@
-<mat-card *ngFor="let snippet of (snippet$ | async)">{{snippet.author}}</mat-card>
+<mat-card *ngFor="let snippet of (snippet$ | async)">{{snippet.author}}
+    <prism-block [code]="snippet.code" [language]="snippet.language"></prism-block>
+</mat-card>
