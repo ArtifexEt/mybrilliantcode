@@ -18,13 +18,8 @@ import {AngularFirestoreModule} from "@angular/fire/firestore";
 import { ReactiveFormsModule } from '@angular/forms';
 import {MatCardModule} from '@angular/material/card';
 
-/* Import prism core */
-import 'prismjs/prism';
-
-/* Import the language you need to highlight */
-import 'prismjs/components/prism-typescript';
-
-import { PrismComponent } from 'angular-prism';
+import {MarkdownModule} from "ngx-markdown";
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -34,10 +29,10 @@ import { PrismComponent } from 'angular-prism';
     FormViewComponent,
     DetailsViewComponent,
     HomeViewComponent,
-    PrismComponent,
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     LayoutModule,
@@ -49,6 +44,7 @@ import { PrismComponent } from 'angular-prism';
     MatInputModule,
     MatSelectModule,
     AngularFireModule.initializeApp(environment.firebase),
+    MarkdownModule.forRoot(),
     AngularFirestoreModule,
     ReactiveFormsModule,
     MatCardModule,
