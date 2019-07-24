@@ -1,5 +1,5 @@
 <mat-card *ngFor="let snippet of (snippet$ | async)">
-  <mat-card-title>{{snippet.author}}</mat-card-title>
+  <mat-card-title>{{snippet.title}}</mat-card-title>
   <markdown [data]="snippet.code | language : snippet.language" lineNumbers></markdown>
   <markdown [data]="snippet.explanation"></markdown>
 </mat-card>

@@ -1,0 +1,33 @@
+<form class="example-form" [formGroup]="form">
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="Author" formControlName="author">
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="Title" formControlName="title">
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="Email" formControlName="email">
+    </mat-form-field> 
+
+    <mat-form-field>
+      <mat-label>Language</mat-label>
+      <mat-select formControlName="language">
+        <mat-option *ngFor="let language of languages" [value]="language.value">
+          {{language.viewValue}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <textarea matInput placeholder="Code" formControlName="code"></textarea>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <textarea matInput placeholder="Explanation" formControlName="explanation"></textarea>
+    </mat-form-field> 
+
+    <button mat-raised-button [disabled]="form.invalid" (click)="add()">SUBMIT</button>
+  </form>
+
