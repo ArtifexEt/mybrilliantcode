@@ -37,12 +37,12 @@ export class SnippetFormComponent implements OnInit {
 
   ngOnInit() {
     this.form = this.formBuilder.group({
-      'author': ['a',Validators.required],
-      'title': ['b',Validators.required],
-      'email': ['abc@def.pl',[Validators.required, Validators.email]],
-      'language': ['java',Validators.required],
-      'code': ['xxx',Validators.required],
-      'explanation': ['vvv',Validators.required]
+      'author': ['', Validators.required],
+      'title': ['', Validators.required],
+      'email': ['',[Validators.required, Validators.email]],
+      'language': ['', Validators.required],
+      'code': ['', Validators.required],
+      'explanation': ['', Validators.required]
     })
   }
   add() {
