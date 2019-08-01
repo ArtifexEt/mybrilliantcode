@@ -2,4 +2,9 @@
   <mat-card-title>{{snippet.title}}</mat-card-title>
   <markdown [data]="snippet.code | language : snippet.language" lineNumbers></markdown>
   <markdown [data]="snippet.explanation"></markdown>
+
+  <code>{{snippet | json}}</code>
+  <mat-card-actions>
+    <button mat-button [routerLink]="['view', snippet.id]">View</button>
+  </mat-card-actions>
 </mat-card>

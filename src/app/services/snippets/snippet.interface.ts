@@ -5,4 +5,5 @@ export interface Snippet {
     language: string;
     code: string;
     explanation: string;
- } 
+    id?: string;
+ }

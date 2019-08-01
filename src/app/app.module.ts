@@ -22,6 +22,7 @@ import {MarkdownModule} from "ngx-markdown";
 import {HttpClientModule} from "@angular/common/http";
 import { SnippetFormComponent } from './views/form-view/snippet-form/snippet-form.component';
 import { SnippetAddedComponent } from './views/form-view/snippet-added/snippet-added.component';
+import {DisqusModule} from "ngx-disqus";
 
 @NgModule({
   declarations: [
@@ -49,6 +50,7 @@ import { SnippetAddedComponent } from './views/form-view/snippet-added/snippet-a
     MatSelectModule,
     AngularFireModule.initializeApp(environment.firebase),
     MarkdownModule.forRoot(),
+    DisqusModule.forRoot('mybrilliantcode'),
     AngularFirestoreModule,
     ReactiveFormsModule,
     MatCardModule,

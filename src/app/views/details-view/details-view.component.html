@@ -1,1 +1,18 @@
-<p>details-view works!</p>
+<div *ngIf="(snippet$ | async) as snippet">
+  <mat-card>
+    <mat-card-title>{{snippet.title}}</mat-card-title>
+    <markdown [data]="snippet.code | language : snippet.language" lineNumbers></markdown>
+    <markdown [data]="snippet.explanation"></markdown>
+
+    <code>{{snippet | json}}</code>
+    <mat-card-actions>
+
+    </mat-card-actions>
+  </mat-card>
+
+  <mat-card>
+    <disqus [identifier]="snippet.id"></disqus>
+  </mat-card>
+
+</div>
+
