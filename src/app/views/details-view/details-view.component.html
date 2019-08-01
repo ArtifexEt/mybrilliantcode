@@ -3,8 +3,6 @@
     <mat-card-title>{{snippet.title}}</mat-card-title>
     <markdown [data]="snippet.code | language : snippet.language" lineNumbers></markdown>
     <markdown [data]="snippet.explanation"></markdown>
-
-    <code>{{snippet | json}}</code>
     <mat-card-actions>
 
     </mat-card-actions>
