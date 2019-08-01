@@ -1,9 +1,9 @@
 .example-form {
-    min-width: 150px;
     max-width: 500px;
     width: 100%;
-    margin-left: 20px;
-    margin-top: 20px;
+    padding-left: 20px;
+    padding-top: 20px;
+    box-sizing: border-box;
   }
   
   .example-full-width {
@@ -17,7 +17,7 @@
   button{
     background-color: #c2c6e0;
     text-align: center;
-    font-weight: 550;
+    font-weight: 500;
   }
 
   button:hover{
