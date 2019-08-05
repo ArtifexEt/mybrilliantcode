@@ -23,6 +23,7 @@ import {HttpClientModule} from "@angular/common/http";
 import { SnippetFormComponent } from './views/form-view/snippet-form/snippet-form.component';
 import { SnippetAddedComponent } from './views/form-view/snippet-added/snippet-added.component';
 import {DisqusModule} from "ngx-disqus";
+import { LoginViewComponent } from './views/login-view/login-view.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import {DisqusModule} from "ngx-disqus";
     HomeViewComponent,
     SnippetFormComponent,
     SnippetAddedComponent,
+    LoginViewComponent,
   ],
   imports: [
     BrowserModule,
