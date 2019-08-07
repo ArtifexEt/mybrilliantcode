@@ -23,7 +23,9 @@ import {HttpClientModule} from "@angular/common/http";
 import { SnippetFormComponent } from './views/form-view/snippet-form/snippet-form.component';
 import { SnippetAddedComponent } from './views/form-view/snippet-added/snippet-added.component';
 import {DisqusModule} from "ngx-disqus";
-import { LoginViewComponent } from './views/login-view/login-view.component';
+import {AngularFireAuthModule} from "@angular/fire/auth";
+import {MatBottomSheetModule} from '@angular/material/bottom-sheet';
+import { LoginSheetComponent } from './components/sheet/login-sheet/login-sheet.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +37,7 @@ import { LoginViewComponent } from './views/login-view/login-view.component';
     HomeViewComponent,
     SnippetFormComponent,
     SnippetAddedComponent,
-    LoginViewComponent,
+    LoginSheetComponent,
   ],
   imports: [
     BrowserModule,
@@ -50,10 +52,12 @@ import { LoginViewComponent } from './views/login-view/login-view.component';
     MatListModule,
     MatInputModule,
     MatSelectModule,
+    MatBottomSheetModule,
     AngularFireModule.initializeApp(environment.firebase),
     MarkdownModule.forRoot(),
     DisqusModule.forRoot('mybrilliantcode'),
     AngularFirestoreModule,
+    AngularFireAuthModule,
     ReactiveFormsModule,
     MatCardModule,
   ],

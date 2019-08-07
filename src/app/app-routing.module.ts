@@ -4,7 +4,6 @@ import {HomeViewComponent} from './views/home-view/home-view.component';
 import {DetailsViewComponent} from './views/details-view/details-view.component';
 import {FormViewComponent} from './views/form-view/form-view.component';
 import {TermsViewComponent} from './views/terms-view/terms-view.component';
-import { LoginViewComponent } from './views/login-view/login-view.component';
 
 
 const routes: Routes = [
@@ -23,11 +22,7 @@ const routes: Routes = [
   {
     path: 'terms',
     component: TermsViewComponent,
-  },
-  {
-    path: 'login',
-    component: LoginViewComponent,
-  },
+  }
 ];
 
 @NgModule({

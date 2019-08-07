@@ -1,14 +1,36 @@
 <mat-sidenav-container class="sidenav-container">
   <mat-sidenav #drawer class="sidenav" fixedInViewport
-      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
-      [mode]="(isHandset$ | async) ? 'over' : 'side'"
-      [opened]="(isHandset$ | async) === false">
+    [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+    [mode]="(isHandset$ | async) ? 'over' : 'side'"
+    [opened]="(isHandset$ | async) === false">
     <mat-toolbar>Menu</mat-toolbar>
+    <mat-card *ngIf="(user$ | async) as user">
+      <mat-card-header>
+        <img style="display: block" mat-card-avatar src="{{ user.photoURL }}">
+        <mat-card-title>{{ user.displayName }}</mat-card-title>
+        <mat-card-subtitle>{{ user.email }}</mat-card-subtitle>
+      </mat-card-header>
+
+    </mat-card>
     <mat-nav-list>
-      <a mat-list-item routerLink=""><mat-icon>home</mat-icon> Home </a>
-      <a mat-list-item routerLink="add"><mat-icon>add_box</mat-icon> Add </a>
-      <a mat-list-item routerLink="terms"><mat-icon>info</mat-icon> Terms </a>
-      <a mat-list-item routerLink="login"><mat-icon>lock</mat-icon> Login </a>
+      <a mat-list-item routerLink="">
+        <mat-icon>home</mat-icon>
+        Home
+      </a>
+      <a mat-list-item routerLink="add">
+        <mat-icon>add_box</mat-icon>
+        Add
+      </a>
+      <a mat-list-item routerLink="terms">
+        <mat-icon>info</mat-icon>
+        Terms
+      </a>
+      <a *ngIf="(user$ | async) === null; else signOutItem"
+        (click)="login()"
+        mat-list-item>
+        <mat-icon>lock</mat-icon>Login
+      </a>
+
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
@@ -21,8 +43,15 @@
         *ngIf="isHandset$ | async">
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
-      <span>My Brilliant Code </span>
+      <span>My Brilliant Code</span>
     </mat-toolbar>
     <router-outlet></router-outlet>
   </mat-sidenav-content>
 </mat-sidenav-container>
+
+<ng-template #signOutItem>
+  <a mat-list-item (click)="signOut()">
+    <mat-icon>lock</mat-icon>
+    Sign Out
+  </a>
+</ng-template>
