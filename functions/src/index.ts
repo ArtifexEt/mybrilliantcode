@@ -6,10 +6,9 @@
 // export const helloWorld = functions.https.onRequest((request, response) => {
 //  response.send("Hello from Firebase!");
 // });
-// Set admin privilege on the user corresponding to uid.
 import * as admin from 'firebase-admin';
 
-
+// Set admin privilege on the user corresponding to uid.
 function setAsAdmin(uid: string): void{
   admin.auth().setCustomUserClaims(uid, {admin: true}).then(() => {
     // The new custom claims will propagate to the user's ID token the
