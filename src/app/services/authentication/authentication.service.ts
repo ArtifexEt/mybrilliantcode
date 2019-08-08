@@ -1,8 +1,9 @@
 import {Injectable} from '@angular/core';
 import {AngularFireAuth} from "@angular/fire/auth";
 import {AuthenticationType} from "./authentication-type.enum";
-import {auth, User, UserInfo} from "firebase";
+import {auth} from "firebase";
 import {BehaviorSubject, Observable} from "rxjs";
+import {UserInfo} from "./user-info";
 
 @Injectable({
   providedIn: 'root'
@@ -12,9 +13,9 @@ export class AuthenticationService {
   private currentUser$: BehaviorSubject<UserInfo> = new BehaviorSubject<UserInfo>(null);
 
   constructor(private afAuth: AngularFireAuth) {
-    this.afAuth.auth.onAuthStateChanged((user: User) => {
+    this.afAuth.idTokenResult.subscribe(user => {
       if (user) {
-        this.currentUser$.next(user);
+        this.currentUser$.next(user.claims as UserInfo);
       } else {
         this.currentUser$.next(null);
       }

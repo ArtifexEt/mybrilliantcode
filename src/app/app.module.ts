@@ -28,6 +28,7 @@ import {MatBottomSheetModule} from '@angular/material/bottom-sheet';
 import { LoginSheetComponent } from './components/sheet/login-sheet/login-sheet.component';
 import { LoginRequiredViewComponent } from './views/login-required-view/login-required-view.component';
 import {AngularFireAuthGuardModule} from "@angular/fire/auth-guard";
+import {AngularFireFunctionsModule} from "@angular/fire/functions";
 
 @NgModule({
   declarations: [
@@ -62,6 +63,7 @@ import {AngularFireAuthGuardModule} from "@angular/fire/auth-guard";
     AngularFirestoreModule,
     AngularFireAuthModule,
     AngularFireAuthGuardModule,
+    AngularFireFunctionsModule,
     ReactiveFormsModule,
     MatCardModule,
   ],

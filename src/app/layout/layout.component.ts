@@ -3,10 +3,10 @@ import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import {AuthenticationService} from "../services/authentication/authentication.service";
-import {UserInfo} from "firebase";
 import {MatBottomSheet} from "@angular/material";
 import {LoginSheetComponent} from "../components/sheet/login-sheet/login-sheet.component";
 import {Router} from "@angular/router";
+import {UserInfo} from "../services/authentication/user-info";
 
 @Component({
   selector: 'app-layout',

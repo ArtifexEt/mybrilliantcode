@@ -1,5 +1,3 @@
-//import * as functions from 'firebase-functions';
-
 // // Start writing Firebase Functions
 // // https://firebase.google.com/docs/functions/typescript
 //
@@ -7,12 +5,24 @@
 //  response.send("Hello from Firebase!");
 // });
 import * as admin from 'firebase-admin';
+import * as functions from 'firebase-functions';
 
-// Set admin privilege on the user corresponding to uid.
-function setAsAdmin(uid: string): void{
-  admin.auth().setCustomUserClaims(uid, {admin: true}).then(() => {
-    // The new custom claims will propagate to the user's ID token the
-    // next time a new one is issued.
+admin.initializeApp();
+
+exports.setAsAdmin = functions.https.onCall(async (data, context) => {
+  if(context.auth && context.auth.token && context.auth.token.admin === true) {
+    return setAsAdmin(data.email);
+  } else {
+    return {
+      error: "error"
+    }
+  }
+});
+
+async function setAsAdmin(email: string): Promise<void>{
+  const user = await admin.auth().getUserByEmail(email);
+  return admin.auth().setCustomUserClaims(user.uid, {
+    admin: true
   });
 }
 
