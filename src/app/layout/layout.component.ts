@@ -6,6 +6,7 @@ import {AuthenticationService} from "../services/authentication/authentication.s
 import {UserInfo} from "firebase";
 import {MatBottomSheet} from "@angular/material";
 import {LoginSheetComponent} from "../components/sheet/login-sheet/login-sheet.component";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-layout',
@@ -18,7 +19,8 @@ export class LayoutComponent implements OnInit {
 
   constructor(private breakpointObserver: BreakpointObserver,
               private authenticationService: AuthenticationService,
-              private bottomSheet: MatBottomSheet
+              private bottomSheet: MatBottomSheet,
+              private router: Router,
   ) {}
 
   ngOnInit(): void {
@@ -32,6 +34,7 @@ export class LayoutComponent implements OnInit {
 
   signOut() {
     this.authenticationService.signOut();
+    this.router.navigate(['']);
   }
 
   login(): void {

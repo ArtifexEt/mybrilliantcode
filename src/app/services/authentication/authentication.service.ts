@@ -15,7 +15,6 @@ export class AuthenticationService {
     this.afAuth.auth.onAuthStateChanged((user: User) => {
       if (user) {
         this.currentUser$.next(user);
-        console.log(user)
       } else {
         this.currentUser$.next(null);
       }

@@ -4,7 +4,10 @@ import {HomeViewComponent} from './views/home-view/home-view.component';
 import {DetailsViewComponent} from './views/details-view/details-view.component';
 import {FormViewComponent} from './views/form-view/form-view.component';
 import {TermsViewComponent} from './views/terms-view/terms-view.component';
+import {LoginRequiredViewComponent} from "./views/login-required-view/login-required-view.component";
+import {AngularFireAuthGuard, redirectUnauthorizedTo} from "@angular/fire/auth-guard";
 
+const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(["login-required"]);
 
 const routes: Routes = [
   {
@@ -22,6 +25,16 @@ const routes: Routes = [
   {
     path: 'terms',
     component: TermsViewComponent,
+  },
+  {
+    path: 'login-required',
+    component: LoginRequiredViewComponent,
+  },
+  {
+    path: 'admin',
+    loadChildren : () => import('./views/admin-view/admin.module').then(module => module.AdminModule),
+    canActivate: [AngularFireAuthGuard],
+    data: { authGuardPipe: redirectUnauthorizedToLogin },
   }
 ];
 
