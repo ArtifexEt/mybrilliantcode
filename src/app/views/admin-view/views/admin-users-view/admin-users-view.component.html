@@ -1,3 +1,36 @@
-<p>admin-user-view works!</p>
-<input #input>
-<button (click)="add(input.value)">Dodaj Admina</button>
+<table mat-table
+       [dataSource]="userList" multiTemplateDataRows>
+  <ng-container matColumnDef="{{column}}" *ngFor="let column of columnsToDisplay">
+    <th mat-header-cell *matHeaderCellDef> {{column}} </th>
+    <td mat-cell *matCellDef="let element"> {{element[column]}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="expandedDetail">
+    <td mat-cell *matCellDef="let element" [attr.colspan]="columnsToDisplay.length">
+      <div class="example-element-detail"
+           [@detailExpand]="element == expandedElement ? 'expanded' : 'collapsed'">
+  <img src="{{ element.picture }}">
+        <div>
+          <p>imie: {{element.name}}</p>
+          <p>email: {{element.email}}</p>
+          <p>uid: {{element.uid}}</p>
+
+          <p *ngIf="element.admin === true">Jest Adminen!</p>
+          <p *ngIf="element.disabled === true">Jest zablokowany!</p>
+
+          <button
+            *ngIf="!element.admin"
+            mat-button color="warn" (click)="setAsAdmin(element.uid)">Awansuj na Admina</button>
+        </div>
+      </div>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+  <tr mat-row *matRowDef="let element; columns: columnsToDisplay;"
+      class="example-element-row"
+      [class.example-expanded-row]="expandedElement === element"
+      (click)="expandedElement = expandedElement === element ? null : element">
+  </tr>
+  <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="example-detail-row"></tr>
+</table>
