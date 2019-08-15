@@ -17,6 +17,7 @@ import {environment} from "../environments/environment";
 import {AngularFirestoreModule} from "@angular/fire/firestore";
 import { ReactiveFormsModule } from '@angular/forms';
 import {MatCardModule} from '@angular/material/card';
+import {MatPaginatorModule} from '@angular/material/paginator';
 
 import {MarkdownModule} from "ngx-markdown";
 import {HttpClientModule} from "@angular/common/http";
@@ -57,6 +58,7 @@ import {AngularFireFunctionsModule} from "@angular/fire/functions";
     MatInputModule,
     MatSelectModule,
     MatBottomSheetModule,
+    MatPaginatorModule,
     AngularFireModule.initializeApp(environment.firebase),
     MarkdownModule.forRoot(),
     DisqusModule.forRoot('mybrilliantcode'),
