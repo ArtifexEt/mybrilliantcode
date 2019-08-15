@@ -1,9 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import {RouterModule} from "@angular/router";
 import {AdminViewComponent} from "./admin-view.component";
 import { AdminSnippetsViewComponent } from './views/admin-snippets-view/admin-snippets-view.component';
 import { AdminUsersViewComponent } from './views/admin-users-view/admin-users-view.component';
+import {AdminRoutingModule} from "./admin-routing.module";
+import {MatButtonModule, MatTableModule} from "@angular/material";
 
 
 
@@ -15,15 +16,9 @@ import { AdminUsersViewComponent } from './views/admin-users-view/admin-users-vi
   ],
   imports: [
     CommonModule,
-    RouterModule.forChild([
-      { path: '', component: AdminViewComponent,
-        children: [
-          { path: '', component: AdminSnippetsViewComponent },
-          { path: 'snippets', component: AdminSnippetsViewComponent },
-          { path: 'users', component: AdminUsersViewComponent }
-        ]
-      }
-    ])
+    MatTableModule,
+    MatButtonModule,
+    AdminRoutingModule,
   ]
 })
 export class AdminModule { }

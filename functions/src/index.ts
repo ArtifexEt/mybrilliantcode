@@ -9,21 +9,44 @@ import * as functions from 'firebase-functions';
 
 admin.initializeApp();
 
-exports.setAsAdmin = functions.https.onCall(async (data, context) => {
-  if(context.auth && context.auth.token && context.auth.token.admin === true) {
-    return setAsAdmin(data.email);
-  } else {
-    return {
-      error: "error"
-    }
+export const setAsAdmin = functions.https.onCall(async (data, context) => {
+  if (!isAdmin(context)) {
+    return { error: `Unauthorized.` }
   }
+
+  return _setAsAdmin(data.uid);
 });
 
-async function setAsAdmin(email: string): Promise<void>{
-  const user = await admin.auth().getUserByEmail(email);
-  return admin.auth().setCustomUserClaims(user.uid, {
+export const getUsers = functions.https.onCall((data, context) => {
+  if (!isAdmin(context)) {
+    return { error: `Unauthorized.` }
+  }
+
+  return admin
+    .auth()
+    .listUsers()
+    .then((listUsersResult) => {
+      const result = listUsersResult.users.map((user) => {
+        const { uid, email, photoURL, displayName, disabled, customClaims } = user;
+        return { uid, email, picture: photoURL, name: displayName, disabled, ...customClaims}
+      });
+
+      return { result }
+
+    })
+    .catch((error) => {
+      return { error: 'Error listing users' }
+    })
+});
+
+async function _setAsAdmin(uid: string): Promise<void>{
+  return admin.auth().setCustomUserClaims(uid, {
     admin: true
   });
+}
+
+function isAdmin(context: any): boolean {
+  return context.auth && context.auth.token && context.auth.token.admin === true;
 }
 
 

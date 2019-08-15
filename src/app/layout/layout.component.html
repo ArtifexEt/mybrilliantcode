@@ -25,15 +25,24 @@
         <mat-icon>info</mat-icon>
         Terms
       </a>
+      <ng-container *ngIf="(user$ | async)?.admin === true">
+        <mat-divider></mat-divider>
+        <a
+          mat-list-item routerLink="admin/users">
+          <mat-icon>person</mat-icon>Users
+        </a>
+        <a
+          mat-list-item routerLink="admin/snippets">
+          <mat-icon>code</mat-icon>Snippets
+        </a>
+      </ng-container>
+      <mat-divider></mat-divider>
       <a *ngIf="(user$ | async) === null; else signOutItem"
         (click)="login()"
         mat-list-item>
         <mat-icon>lock</mat-icon>Login
       </a>
-      <a *ngIf="(user$ | async)?.admin === true"
-        mat-list-item routerLink="admin/snippets">
-        Admin
-      </a>
+
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
