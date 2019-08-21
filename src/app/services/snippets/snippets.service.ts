@@ -12,7 +12,7 @@ export class SnippetsService {
   constructor(private db: AngularFirestore) {
   }
 
-  public getSnippets(limit: number): Observable<Snippet[]> {
+  public getSnippet$(limit: number): Observable<Snippet[]> {
     return this.db.collection<Snippet>('snippets',ref => ref.limit(limit)).snapshotChanges()
       .pipe(
         map(actions => {

@@ -14,7 +14,7 @@ export class HomeViewComponent implements OnInit {
   constructor(private snippetsService: SnippetsService) { }
 
   ngOnInit() {
-    this.snippet$=this.snippetsService.getSnippets(10);
+    this.snippet$=this.snippetsService.getSnippet$(10);
 
   }
 }

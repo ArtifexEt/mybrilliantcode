@@ -4,7 +4,8 @@ import {AdminViewComponent} from "./admin-view.component";
 import { AdminSnippetsViewComponent } from './views/admin-snippets-view/admin-snippets-view.component';
 import { AdminUsersViewComponent } from './views/admin-users-view/admin-users-view.component';
 import {AdminRoutingModule} from "./admin-routing.module";
-import {MatButtonModule, MatTableModule} from "@angular/material";
+import {MatButtonModule, MatTableModule, MatIconModule} from "@angular/material";
+import {MatMenuModule} from '@angular/material/menu';
 
 
 
@@ -19,6 +20,8 @@ import {MatButtonModule, MatTableModule} from "@angular/material";
     MatTableModule,
     MatButtonModule,
     AdminRoutingModule,
+    MatMenuModule,
+    MatIconModule,
   ]
 })
 export class AdminModule { }
