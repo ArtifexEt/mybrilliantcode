@@ -1,11 +1,14 @@
+
 <form class="example-form" [formGroup]="form">
+
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Title" formControlName="title">
+  </mat-form-field>
+  
     <mat-form-field class="example-full-width">
       <input matInput placeholder="Author" formControlName="author">
     </mat-form-field>
 
-    <mat-form-field class="example-full-width">
-      <input matInput placeholder="Title" formControlName="title">
-    </mat-form-field>
 
     <mat-form-field class="example-full-width">
       <input matInput placeholder="Email" formControlName="email">
